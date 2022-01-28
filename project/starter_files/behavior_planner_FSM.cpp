@@ -139,8 +139,8 @@ State BehaviorPlannerFSM::state_transition(const State& ego_state, State goal,
             // use cosine and sine to get x and y
             //
             auto ang = goal.rotation.yaw + M_PI;
-            goal.location.x += _stop_line_buffer * sin(ang);  // <- Fix This
-            goal.location.y += _stop_line_buffer * cos(ang);  // <- Fix This
+            goal.location.x += _stop_line_buffer * std::sin(ang);  // <- Fix This
+            goal.location.y += _stop_line_buffer * std::cos(ang);  // <- Fix This
 
             // LOG(INFO) << "BP- new STOP goal at: " << goal.location.x << ", "
             //          << goal.location.y;
@@ -155,8 +155,8 @@ State BehaviorPlannerFSM::state_transition(const State& ego_state, State goal,
             // that we know we are in nominal state and we can continue freely?
             // Remember that the speed is a vector
             // HINT: _speed_limit * std::sin/cos (goal.rotation.yaw);
-            goal.velocity.x = _speed_limit * sin(goal.rotation.yaw);  // <- Fix This
-            goal.velocity.y = _speed_limit * cos(goal.rotation.yaw);;  // <- Fix This
+            goal.velocity.x = _speed_limit * std::sin(goal.rotation.yaw);  // <- Fix This
+            goal.velocity.y = _speed_limit * std::cos(goal.rotation.yaw);;  // <- Fix This
             goal.velocity.z = 0;
         }
 
