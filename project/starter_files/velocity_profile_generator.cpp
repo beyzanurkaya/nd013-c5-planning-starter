@@ -395,7 +395,5 @@ double VelocityProfileGenerator::calc_final_speed(const double& v_i,
     } else {
         v_f = std::sqrt(disc);
     }
-    //   std::cout << "v_i, a, d: " << v_i << ", " << a << ", " << d
-    //             << ",  v_f: " << v_f << std::endl;
     return v_f;
 }

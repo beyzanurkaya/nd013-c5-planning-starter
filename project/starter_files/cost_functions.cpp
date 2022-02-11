@@ -53,8 +53,8 @@ namespace cost_functions {
                 // TODO-Circle placement: Where should the circles be at? The code below
                 // is NOT complete. HINT: use CIRCLE_OFFSETS[c], sine and cosine to
                 // calculate x and y: cur_y + CIRCLE_OFFSETS[c] * std::sin/cos(cur_yaw)
-                auto circle_center_x = cur_x + CIRCLE_OFFSETS[c] * std::cos(cur_yaw);  // <- Update
-                auto circle_center_y = cur_y + CIRCLE_OFFSETS[c] * std::sin(cur_yaw); ;  // <- Update
+                auto circle_center_x = cur_x + CIRCLE_OFFSETS[c] * std::sin(cur_yaw);  // <- Update
+                auto circle_center_y = cur_y + CIRCLE_OFFSETS[c] * std::cos(cur_yaw); ;  // <- Update
 
                 for (auto obst : obstacles) {
                     if (collision) {
@@ -63,9 +63,9 @@ namespace cost_functions {
                     auto actor_yaw = obst.rotation.yaw;
                     for (size_t c2 = 0; c2 < n_circles && !collision; ++c2) {
                         auto actor_center_x =
-                                obst.location.x + CIRCLE_OFFSETS[c2] * std::cos(actor_yaw);
+                                obst.location.x + CIRCLE_OFFSETS[c2] * std::sin(actor_yaw);
                         auto actor_center_y =
-                                obst.location.y + CIRCLE_OFFSETS[c2] * std::sin(actor_yaw);
+                                obst.location.y + CIRCLE_OFFSETS[c2] * std::cos(actor_yaw);
 
                         // TODO-Distance from circles to obstacles/actor: How do you calculate
                         // the distance between the center of each circle and the
