@@ -70,15 +70,15 @@ State BehaviorPlannerFSM::get_closest_waypoint_goal(
     return waypoint;
 }
 
+
 double BehaviorPlannerFSM::get_look_ahead_distance(const State& ego_state) {
     auto velocity_mag = utils::magnitude(ego_state.velocity);
     auto accel_mag = utils::magnitude(ego_state.acceleration);
-
     // TODO-Lookahead: One way to find a reasonable lookahead distance is to find
     // the distance you will need to come to a stop while traveling at speed V and
     // using a comfortable deceleration.
-    auto look_ahead_distance = (velocity_mag * velocity_mag) / (CONFORT_MAX_LON_ACCEL *2);  // <- Fix This
-//    auto look_ahead_distance = velocity_mag * lookahead_time + 0.5 * accel_mag * lookahead_time * lookahead_time;
+//    auto look_ahead_distance = (velocity_mag * lookahead_time) + (accel_mag * lookahead_time * lookahead_time);
+    auto look_ahead_distance = (velocity_mag * lookahead_time;
 
 
     // LOG(INFO) << "Calculated look_ahead_distance: " << look_ahead_distance;
